@@ -45,7 +45,7 @@ export default function QuizRenderer() {
             <div className="question">
               <MathJax dynamic>{q.question}</MathJax>
               {q.math.map((formula, i) => (
-                <MathJax key={i}>{`\\(${formula}\\)`}</MathJax>
+                <MathJax key={i} dynamic>{`\\[${formula}\\]`}</MathJax>
               ))}
             </div>
             
@@ -56,7 +56,7 @@ export default function QuizRenderer() {
             <div className="options">
               {Object.entries(q.options).map(([opt, text]) => (
                 <div key={opt} className="option">
-                  <MathJax>{`${opt}. ${text}`}</MathJax>
+                  <MathJax dynamic>{`${opt}. ${text}`}</MathJax>
                 </div>
               ))}
             </div>
@@ -65,7 +65,7 @@ export default function QuizRenderer() {
               <strong>Answer:</strong> {q.correct}
               {q.explanation && (
                 <div className="explanation">
-                  <MathJax>{q.explanation}</MathJax>
+                  <MathJax dynamic>{q.explanation}</MathJax>
                 </div>
               )}
             </div>
